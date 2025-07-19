@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kushagra Sharma - Senior Full Stack Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" />
+    <style>
+        :root {
+            --primary: #1a2236;
+            --secondary: #fff;
+            --accent: #ffd700;
+            --muted: #f5f7fa;
+            --glass: rgba(255,255,255,0.7);
+            --shadow: 0 8px 32px rgba(26,34,54,0.12);
+        }
+        body {
+            margin: 0;
+            font-family: 'Montserrat', 'Roboto', sans-serif;
+            background: var(--muted);
+            color: #222;
+        }
+       .banner {
+    width: 100%;
+    height: 480px; /* Increased height for better visibility */
+    background: url('1748234736044.jpeg') center/cover no-repeat;
+    position: relative;
+}
+        .hero {
+            position: relative;
+            top: -80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+        }
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 5px solid var(--accent);
+            box-shadow: var(--shadow);
+            object-fit: cover;
+            background: var(--secondary);
+        }
+        .hero h1 {
+            font-size: 2.6em;
+            font-weight: 700;
+            margin: 18px 0 8px 0;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+        .hero p {
+            font-size: 1.15em;
+            color: #444;
+            margin-bottom: 0;
+        }
+        nav {
+            background: var(--secondary);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            list-style: none;
+            margin: 0;
+            padding: 16px 0;
+        }
+        nav ul li a {
+            color: var(--primary);
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 1.08em;
+            padding: 6px 14px;
+            border-radius: 8px;
+            transition: background 0.2s, color 0.2s;
+        }
+        nav ul li a:hover, nav ul li a.active {
+            background: var(--accent);
+            color: var(--primary);
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        section {
+            margin-bottom: 48px;
+        }
+        .section-title {
+            font-size: 2em;
+            color: var(--primary);
+            margin-bottom: 28px;
+            border-left: 8px solid var(--accent);
+            padding-left: 18px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .card, .education-card, .contact-card {
+            background: var(--glass);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            padding: 32px 28px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(8px);
+            border: 1px solid #eaeaea;
+        }
+        .card:hover, .project-card:hover {
+            box-shadow: 0 12px 40px rgba(26,34,54,0.18);
+        }
+        .skills-grid, .project-list, .achievements-list, .certifications-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+        }
+        .skills-grid .card {
+            padding: 24px 18px;
+        }
+        .skills-grid h3 {
+            font-size: 1.18em;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+        .skills-grid ul, .project-card ul {
+            padding: 0;
+            list-style: none;
+        }
+        .skills-grid ul li, .project-card ul li {
+            margin-bottom: 10px;
+            color: #222;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .skills-grid ul li i, .project-card ul li i {
+            color: var(--accent);
+            font-size: 1.1em;
+        }
+        .project-card {
+            background: var(--glass);
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            padding: 24px 20px;
+            transition: box-shadow 0.2s;
+            border: 1px solid #eaeaea;
+        }
+        .project-card h3 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.22em;
+        }
+        .project-card .tech-stack {
+            font-size: 0.98em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .achievements-list li, .certifications-list li {
+            background: var(--glass);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 18px 16px;
+            font-size: 1em;
+            color: #222;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            border: 1px solid #eaeaea;
+        }
+        .achievements-list li i, .certifications-list li i {
+            color: var(--accent);
+            font-size: 1.3em;
+            margin-top: 2px;
+        }
+        .education-card h3 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.18em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .contact-card p {
+            margin: 12px 0;
+            font-size: 1.08em;
+            color: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .contact-card a {
+            color: var(--primary);
+            text-decoration: underline;
+            font-weight: 500;
+        }
+        footer {
+            background: var(--primary);
+            color: var(--secondary);
+            text-align: center;
+            padding: 28px 0;
+            font-size: 1em;
+            margin-top: 48px;
+            border-radius: 18px 18px 0 0;
+            letter-spacing: 1px;
+        }
+        @media (max-width: 700px) {
+            .container { padding: 0 8px; }
+            .skills-grid, .project-list, .achievements-list, .certifications-list { grid-template-columns: 1fr; }
+            nav ul { gap: 12px; font-size: 0.98em; }
+            .hero h1 { font-size: 2em; }
+            .banner { height: 120px; }
+            .hero { top: -40px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner"></div>
+    <div class="hero">
+        <img src="profile.jpeg" alt="Kushagra Sharma Profile" class="profile-img">
+        <h1>Kushagra Sharma</h1>
+        <p>Senior Full Stack Developer | MERN, Next.js, React Native, Three.js</p>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#summary">Summary</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <section id="summary">
+            <h2 class="section-title">Summary</h2>
+            <div class="card">
+                <p>
+                    Versatile Full Stack Developer with proven expertise in MERN stack and React Native, delivering high-impact web and mobile applications. Experienced in leading teams, architecting scalable solutions, and managing robust AWS deployments.
+                </p>
+            </div>
+        </section>
+        <section id="experience">
+            <h2 class="section-title">Experience</h2>
+            <div class="card">
+                <h3>Senior Fullstack Developer, Cybercure Technologies Pvt. Ltd.</h3>
+                <p><i class="fa-solid fa-calendar"></i> Jul 2024 - Present | Delhi, India</p>
+                <ul>
+                    <li>Led development teams, managed client communication, and ensured on-time, high-quality project delivery within agile frameworks.</li>
+                    <li>Developed scalable web/mobile apps using Node.js, Express.js, React.js, React Native, integrating payment gateways and IoT.</li>
+                    <li>Managed AWS infrastructure (EC2, S3, CodeDeploy), CI/CD pipelines, and production monitoring.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Fullstack Developer, Cybercure Technologies Pvt. Ltd.</h3>
+                <p><i class="fa-solid fa-calendar"></i> Jul 2023 - Feb 2024 | Delhi, India</p>
+                <ul>
+                    <li>Built interactive UIs with React.js, enhancing user experience.</li>
+                    <li>Developed RESTful APIs with Node.js/Express.js, MongoDB, JWT authentication.</li>
+                    <li>Contributed to React Native apps: push notifications, offline storage, payment & IoT features.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Fullstack Web Development Intern, Innomatics Research Labs</h3>
+                <p><i class="fa-solid fa-calendar"></i> Nov 2021 - May 2022 | Remote</p>
+                <ul>
+                    <li>End-to-end web app development using MERN stack.</li>
+                    <li>Implemented authentication, routing, and database schema design.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Web Development Instructor, AidNoida (NGO)</h3>
+                <p><i class="fa-solid fa-calendar"></i> Jun 2021 - Aug 2021 | Noida, India</p>
+                <ul>
+                    <li>Taught HTML, CSS, JavaScript, React.js to underprivileged children.</li>
+                    <li>Designed engaging materials and guided students through mini-projects.</li>
+                </ul>
+            </div>
+        </section>
+        <section id="skills">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="card">
+                    <h3><i class="fas fa-laptop-code"></i> Programming Languages</h3>
+                    <ul>
+                        <li><i class="fab fa-js-square"></i> JavaScript (ES6+)</li>
+                        <li><i class="fas fa-code"></i> C++</li>
+                        <li><i class="fab fa-html5"></i> HTML5 & <i class="fab fa-css3-alt"></i> CSS3</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-cogs"></i> Frameworks & Libraries</h3>
+                    <ul>
+                        <li><i class="fab fa-react"></i> React.js, Next.js, Vue.js,Electron.js</li>
+                        <li><i class="fab fa-node-js"></i> Node.js, Express.js</li>
+                        <li><i class="fab fa-reacteurope"></i> React Native</li>
+                        <li><i class="fas fa-window-restore"></i> Qt Creator (C++)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-database"></i> Databases</h3>
+                    <ul>
+                        <li><i class="fas fa-server"></i> MongoDB (Mongoose)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
+                    <ul>
+                        <li><i class="fab fa-aws"></i> AWS: EC2, S3, CodeDeploy</li>
+                        <li><i class="fas fa-wrench"></i> CI/CD pipelines</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-tools"></i> Tools & Concepts</h3>
+                    <ul>
+                        <li><i class="fas fa-network-wired"></i> RESTful APIs, JWT, GraphQL</li>
+                        <li><i class="fas fa-drafting-compass"></i> UI/UX, Figma</li>
+                        <li><i class="fab fa-git-alt"></i> Git, GitHub</li>
+                        <li><i class="fas fa-globe"></i> Web Sockets, IoT, RPA</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+      <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-list">
+        <div class="project-card">
+            <h3>Electron.js Clipboard Tracker</h3>
+            <p class="tech-stack"><i class="fas fa-desktop"></i> Electron.js, JavaScript</p>
+            <ul>
+                <li>Desktop application for **enhanced clipboard management** (text & images).</li>
+                <li>Features: `Ctrl+Shift+V` activation, **search, filter (all/images/text), delete** individual items, clear all.</li>
+                <li>Highly useful for developers and power users to **streamline workflow**.</li>
+            </ul>
+            <div class="project-links">
+                <a href="https://github.com/kushagrash2001-dev/Electron_Clipboard_tracker" target="_blank" class="link-button"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+        </div>
+
+        <div class="project-card">
+            <h3>Three.js Car Landing Page & Driving Game</h3>
+            <p class="tech-stack"><i class="fas fa-car-side"></i> Three.js, React, AI-Referenced Design, 3D Models</p>
+            <ul>
+                <li>Interactive **3D car landing page** featuring realistic 3D models.</li>
+                <li>Developed an ** driving feature** with realistic road textures and speedometer, creating an immersive experience.</li>
+                <li>Allows users to **customize car colors** in real-time.</li>
+            </ul>
+            <div class="project-links">
+                <a href="https://kushagra-threejs-landing-game.vercel.app/" target="_blank" class="link-button"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                <a href="https://kushagra-threejs-landing-game.vercel.app/Game" target="_blank" class="link-button"><i class="fas fa-external-link-alt"></i> Live Demo Game</a>
+                <a href="https://github.com/kushagrash2001-dev/Threejs_landing_Game" target="_blank" class="link-button"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3>Image Searcher with Open API</h3>
+            <p class="tech-stack"><i class="fas fa-images"></i> React, Image API, Responsive Design</p>
+            <ul>
+                <li>Dynamic image search application leveraging the **Image API**.</li>
+                <li>Fetches and displays images based on user keyword input.</li>
+                <li>Built with **responsive design** for seamless experience across devices.</li>
+            </ul>
+            <div class="project-links">
+                <a href="https://kushagra-image-search.vercel.app/" target="_blank" class="link-button"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                <a href="https://github.com/kushagrash2001-dev/Image-search-" target="_blank" class="link-button"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3>Next.js Responsive Landing Page</h3>
+            <p class="tech-stack"><i class="fas fa-chart-pie"></i> Next.js, React, Charts.js, Responsive Design</p>
+            <ul>
+                <li>Clean and **responsive landing page** built with Next.js.</li>
+                <li>Integrates **interactive charts and pie charts** for data visualization.</li>
+                <li>Focus on a sleek UI/UX for a modern web presence.</li>
+            </ul>
+            <div class="project-links">
+                <a href="https://kushagra-next-landing-page-g3hk.vercel.app/" target="_blank" class="link-button"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                <a href="https://github.com/kushagrash2001-dev/landing_page_property" target="_blank" class="link-button"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3>Helping Hut NGO Website</h3>
+            <p class="tech-stack"><i class="fas fa-hand-holding-heart"></i> HTML, CSS, JavaScript</p>
+            <ul>
+                <li>Designed and developed a **fully responsive website** for the Helping Hut NGO.</li>
+                <li>Focused on **accessibility and ease of navigation**.</li>
+                <li>Created an **informative and user-friendly interface** to showcase the NGO's mission.</li>
+            </ul>
+            <div class="project-links">
+                </div>
+        </div>
+    </div>
+</section>
+        <section id="achievements">
+            <h2 class="section-title">Achievements</h2>
+            <ul class="achievements-list">
+                <li><i class="fas fa-trophy"></i> Led teams for timely, high-quality delivery of complex solutions.</li>
+                <li><i class="fas fa-credit-card"></i> Developed full-stack apps with payment gateway & IoT integration.</li>
+                <li><i class="fas fa-users"></i> Trained 100+ students in MERN stack workshops.</li>
+                <li><i class="fas fa-chalkboard-teacher"></i> Delivered technical talks and workshops at college events.</li>
+                <li><i class="fas fa-user-graduate"></i> Mentored junior developers, code reviews, technical guidance.</li>
+            </ul>
+        </section>
+        <section id="certifications">
+            <h2 class="section-title">Certifications</h2>
+            <ul class="certifications-list">
+                <li><i class="fas fa-certificate"></i> C++ Programming Learn Vern</li>
+                <li><i class="fas fa-certificate"></i> C for Everyone: Programming Fundamentals - Coursera</li>
+                <li><i class="fas fa-certificate"></i> UI/UX Design Virtual Experience Program - Accenture</li>
+                <li><i class="fas fa-certificate"></i> Responsive Web Design freeCodeCamp</li>
+                <li><i class="fas fa-certificate"></i> Frontend Development CSS Great Learning</li>
+                <li><i class="fas fa-certificate"></i> React.js for beginners upGrad</li>
+                <li><i class="fas fa-certificate"></i> React JS GeeksforGeeks</li>
+            </ul>
+        </section>
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="education-card">
+                <h3><i class="fas fa-graduation-cap"></i> B.Tech in Computer Science</h3>
+                <p>Guru Gobind Singh Indrapra University (GGSIPU) Affiliated College</p>
+                <p>Aug 2019 - Aug 2023</p>
+                <p>CGPA: 8.89/10</p>
+            </div>
+        </section>
+        <section id="contact">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-card">
+                <p><i class="fas fa-envelope"></i> <a href="mailto:kushagrash2001@gmail.com">kushagrash2001@gmail.com</a></p>
+                <p><i class="fas fa-phone"></i> +91 8287641639</p>
+                <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/kushagra-sharma-1542b81b0" target="_blank">LinkedIn</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Delhi, India</p>
+            </div>
+        </section>
+    </div>
+    <footer>
+        &copy; 2025 Kushagra Sharma. All rights reserved.
+    </footer>
+</body>
+</html>
