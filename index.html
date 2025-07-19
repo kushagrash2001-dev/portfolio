@@ -212,11 +212,31 @@
         @media (max-width: 700px) {
             .container { padding: 0 8px; }
             .skills-grid, .project-list, .achievements-list, .certifications-list { grid-template-columns: 1fr; }
-            nav ul { gap: 12px; font-size: 0.98em; }
+            nav { display: none; } /* Hide navbar on mobile */
             .hero h1 { font-size: 2em; }
             .banner { height: 120px; }
             .hero { top: -40px; }
+            .hero p {
+        text-align: center;
+        width: 100%;
+        margin: 0 auto 10px auto;
+    }
+    .achievements-list,
+    .certifications-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .achievements-list li,
+    .certifications-list li {
+        width: 90%;
+        margin: 0 auto 18px auto;
+        text-align: center;
+        justify-content: center;
+    }
         }
+        
     </style>
 </head>
 <body>
